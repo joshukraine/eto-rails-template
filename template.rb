@@ -79,7 +79,7 @@ def configure_spec_support_features
 end
 
 def set_up_factory_girl_for_rspec
-  copy_file 'factory_girl_rspec.rb', 'spec/support/factory_girl.rb'
+  copy_file "factory_girl_rspec.rb", "spec/support/factory_girl.rb"
 end
 
 def enable_database_cleaner
