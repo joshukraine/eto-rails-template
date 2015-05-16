@@ -32,6 +32,7 @@ def configure_rspec
   run "rm -rf test/"
   configure_application_rb
   configure_spec_support_features
+  set_up_factory_girl_for_rspec
   enable_database_cleaner
 end
 
@@ -75,6 +76,10 @@ def configure_spec_support_features
   empty_directory_with_keep_file "spec/factories"
   empty_directory_with_keep_file 'spec/features'
   empty_directory_with_keep_file 'spec/support/features'
+end
+
+def set_up_factory_girl_for_rspec
+  copy_file 'factory_girl_rspec.rb', 'spec/support/factory_girl.rb'
 end
 
 def enable_database_cleaner
