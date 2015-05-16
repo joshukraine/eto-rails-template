@@ -1,0 +1,46 @@
+source "https://rubygems.org"
+
+ruby "<%= RUBY_VERSION %>"
+
+gem "rails", "<%= RAILS_VERSION %>"
+
+gem "coffee-rails", "~> 4.1.0"
+gem "email_validator"
+gem "high_voltage"
+gem "jquery-rails"
+gem "pg"
+gem "sass-rails", "~> 5.0"
+gem "simple_form"
+gem "uglifier"
+gem "bourbon", "~> 4.2.0"
+gem "refills"
+gem "neat", "~> 1.7.0"
+gem "bitters"
+gem "normalize-rails", "~> 3.0.0"
+gem "unicorn"
+gem "capistrano-rails"
+
+group :development do
+  gem "spring"
+  gem "spring-commands-rspec"
+  gem "web-console"
+end
+
+group :development, :test do
+  gem "byebug"
+  gem "factory_girl_rails"
+  gem "pry-rails"
+  gem "rspec-rails", "~> 3.1.0"
+  gem "annotate", "~> 2.6"
+  gem "quiet_assets"
+end
+
+group :test do
+  gem "capybara"
+  gem "capybara-webkit", ">= 1.2.0"
+  gem "database_cleaner"
+  gem "launchy"
+  gem "shoulda-matchers", require: false
+  gem "simplecov", require: false
+  gem "timecop"
+end
