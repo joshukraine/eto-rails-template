@@ -166,7 +166,7 @@ def replace_readme
   remove_file "README.rdoc"
   create_file "README.md" do
     <<-MARKDOWN
-# #{app_name.humanize}
+# #{app_name.titleize}
 
 Be sure to edit this file with content relevant to your app!
     MARKDOWN
