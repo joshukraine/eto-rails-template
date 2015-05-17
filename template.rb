@@ -205,12 +205,9 @@ def setup_tmuxinator
 end
 
 def intialize_git_repo
-  after_bundle do
-    git :init
-    git add: "."
-    git commit: "-a -m 'Initial commit'"
-    app_setup_summary
-  end
+  git :init
+  git add: "."
+  git commit: "-a -m 'Initial commit'"
 end
 
 def app_setup_summary
@@ -256,4 +253,7 @@ remove_turbolinks
 replace_readme
 set_ruby_version
 setup_tmuxinator
-intialize_git_repo
+after_bundle do
+  intialize_git_repo
+  app_setup_summary
+end
