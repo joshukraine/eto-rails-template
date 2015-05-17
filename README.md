@@ -8,7 +8,7 @@ Clone this repo to the directory where you normally build new Rails apps.
 
 ```sh
 cd ~/code
-git clone git@bitbucket.org:euroteamoutreach/eto-rails-template.git
+git clone https://github.com/joshukraine/eto-rails-template.git
 ```
 
 To generate a new Rails app, issue the following command:
