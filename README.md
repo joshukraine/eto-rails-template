@@ -1,6 +1,6 @@
 # ETO Rails Template
 
-This repo is a [Rails Application Template](http://guides.rubyonrails.org/rails_application_templates.html) which generates a new Rails app with ETO defaults.
+This is a [Rails Application Template](http://guides.rubyonrails.org/rails_application_templates.html) which generates a new Rails app with the defaults we use in our organization.
 
 ## Usage
 
@@ -17,7 +17,7 @@ To generate a new Rails app, issue the following command:
 
 ## What It Does
 
-* Adds ETO's default `Gemfile`
+* Adds our default `Gemfile`
 * Adds custom `.gitignore` file
 * Configures app to use PostgreSQL instead of SQLite
 * Installs and configures Rspec 3 for testing
