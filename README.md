@@ -41,7 +41,7 @@ In order to use the included Tmuxinator project, you will need to first install 
 
 Complete instructions are available in the [Tmuxinator README][tmuxinator].
 
-[tmuxinator]: (https://github.com/tmuxinator/tmuxinator/blob/master/README.md)
+[tmuxinator]: https://github.com/tmuxinator/tmuxinator/blob/master/README.md
 
 ## Reference
 
