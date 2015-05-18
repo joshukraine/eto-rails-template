@@ -184,9 +184,10 @@ root: #{current_dir}
 
 windows:
   - editor:
-      layout: 84fb,158x39,0,0[158x27,0,0,15,158x11,0,28,40]
+      layout: b6bc,238x48,0,0[238x34,0,0,61,238x13,0,35{154x13,0,35,62,83x13,155,35,63}]
       panes:
-        - clear; vim -S
+        - clear
+        - clear
         - clear
   - secondary:
       layout: d3e9,158x39,0,0{79x39,0,0,18,78x39,80,0[78x19,80,0,41,78x19,80,20,42]}
