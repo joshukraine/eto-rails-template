@@ -15,6 +15,10 @@ To generate a new Rails app, issue the following command:
 
 	rails new <your_app_name> -m eto-rails-template/template.rb
 
+Once the generator is finished (and assuming you have Tmuxinator installed) simply run:
+
+	mux start <your_app_name>
+
 ## What It Does
 
 * Adds our default `Gemfile`
@@ -26,8 +30,18 @@ To generate a new Rails app, issue the following command:
 * Installs and configures Capistrano for deployment
 * Installs and configures High Voltage for managing static pages
 * Adds a basic `unicorn.rb` file
-* Adds a tmuxinator file
+* Adds a tmuxinator project
 * Initializes git repo with initial commit
+
+## Tmuxinator
+
+In order to use the included Tmuxinator project, you will need to first install the Tmuxinator gem:
+
+	gem install tmuxinator
+
+Complete instructions are available in the [Tmuxinator README][tmuxinator].
+
+[tmuxinator]: (https://github.com/tmuxinator/tmuxinator/blob/master/README.md)
 
 ## Reference
 
