@@ -186,15 +186,15 @@ windows:
   - editor:
       layout: b6bc,238x48,0,0[238x34,0,0,61,238x13,0,35{154x13,0,35,62,83x13,155,35,63}]
       panes:
-        - clear
+        - clear; vi Gemfile
         - clear
         - clear
   - secondary:
       layout: d3e9,158x39,0,0{79x39,0,0,18,78x39,80,0[78x19,80,0,41,78x19,80,20,42]}
       panes:
         - clear; git logg
-        - clear;
-        - clear;
+        - clear
+        - clear
     YML
   end
 end
@@ -230,6 +230,8 @@ def app_setup_summary
   say("Don't forget to set up your database with the following commands:\n", "\e[33m")
   say("- 'bin/rake db:create'\n", "\e[33m")
   say("- 'bin/rake db:migrate'\n\n", "\e[33m")
+  say("To get started, run this command:\n\n", "\e[33m")
+  say("\tmux start #{app_name}\n\n", "\e[33m")
 end
 
 # Prevent default 'bundle install' from running
