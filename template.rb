@@ -1,4 +1,4 @@
-RAILS_VERSION = "4.2.1"
+RAILS_VERSION = "4.2.4"
 
 def source_paths
   Array(super) + [File.join(File.expand_path(File.dirname(__FILE__)),'files')]
@@ -67,6 +67,17 @@ require "sprockets/railtie"
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
       RUBY
+    end
+  end
+end
+
+def configure_secrets_dot_yml
+  inside "config" do
+    insert_into_file "secrets.yml", after: "secret_key_base: <%= ENV[\"SECRET_KEY_BASE\"] %>\n" do
+      <<-YAML
+\nstaging:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+      YAML
     end
   end
 end
@@ -173,38 +184,6 @@ Be sure to edit this file with content relevant to your app!
   end
 end
 
-def add_tmuxinator_file
-  current_dir = Dir.pwd + "/"
-  create_file ".#{app_name}.tmx.yml" do
-    <<-YML
-# ~/.tmuxinator/#{app_name}.yml
-
-name: #{app_name}
-root: #{current_dir}
-
-windows:
-  - editor:
-      layout: b6bc,238x48,0,0[238x34,0,0,61,238x13,0,35{154x13,0,35,62,83x13,155,35,63}]
-      panes:
-        - clear; vi Gemfile
-        - clear
-        - clear
-  - secondary:
-      layout: d3e9,158x39,0,0{79x39,0,0,18,78x39,80,0[78x19,80,0,41,78x19,80,20,42]}
-      panes:
-        - clear; git logg
-        - clear
-        - clear
-    YML
-  end
-end
-
-def setup_tmuxinator
-  add_tmuxinator_file
-  run "mkdir -p ~/.tmuxinator/"
-  run "ln .#{app_name}.tmx.yml ~/.tmuxinator/#{app_name}.yml"
-end
-
 def intialize_git_repo
   git :init
   git add: "."
@@ -225,23 +204,21 @@ def app_setup_summary
   say("- A basic unicorn.rb file added.\n", "\e[33m")
   say("- Turbolinks references were removed.\n", "\e[33m")
   say("- A starter README.md file was added.\n", "\e[33m")
-  say("- A tmuxinator file setup and linked to ~/.tmuxintator.\n", "\e[33m")
   say("- A git repository was initialized and the first commit made.\n\n", "\e[33m")
   say("Don't forget to set up your database with the following commands:\n", "\e[33m")
   say("- 'bin/rake db:create'\n", "\e[33m")
   say("- 'bin/rake db:migrate'\n\n", "\e[33m")
-  say("To get started, run this command:\n\n", "\e[33m")
-  say("\tmux start #{app_name}\n\n", "\e[33m")
 end
 
 # Prevent default 'bundle install' from running
 def run_bundle ; end
 
-run_bundle_install
 replace_gemfile
+run_bundle_install
 replace_gitignore
 install_rspec
 configure_rspec
+configure_secrets_dot_yml
 customize_database_config
 configure_simple_form
 configure_capistrano
@@ -255,7 +232,6 @@ configure_high_voltage
 remove_turbolinks
 replace_readme
 set_ruby_version
-setup_tmuxinator
 after_bundle do
   intialize_git_repo
   app_setup_summary
