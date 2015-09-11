@@ -2,6 +2,9 @@
 
 This is a [Rails Application Template](http://guides.rubyonrails.org/rails_application_templates.html) which generates a new Rails app with the defaults we use in our organization.
 
+* Rails version: `4.2.4`
+* Recommended Ruby version: `2.2.3`
+
 ## Usage
 
 Clone this repo to the directory where you normally build new Rails apps.
@@ -15,10 +18,6 @@ To generate a new Rails app, issue the following command:
 
 	rails new <your_app_name> -m eto-rails-template/template.rb
 
-Once the generator is finished (and assuming you have Tmuxinator installed) simply run:
-
-	mux start <your_app_name>
-
 ## What It Does
 
 * Adds our default `Gemfile`
@@ -30,18 +29,7 @@ Once the generator is finished (and assuming you have Tmuxinator installed) simp
 * Installs and configures Capistrano for deployment
 * Installs and configures High Voltage for managing static pages
 * Adds a basic `unicorn.rb` file
-* Adds a tmuxinator project
 * Initializes git repo with initial commit
-
-## Tmuxinator
-
-In order to use the included Tmuxinator project, you will need to first install the Tmuxinator gem:
-
-	gem install tmuxinator
-
-Complete instructions are available in the [Tmuxinator README][tmuxinator].
-
-[tmuxinator]: https://github.com/tmuxinator/tmuxinator/blob/master/README.md
 
 ## Reference
 
